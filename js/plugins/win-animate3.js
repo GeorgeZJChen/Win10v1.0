@@ -96,7 +96,7 @@
         '<div class="window-animate-appendix maximise-cover"><div class="cover-inner"></div></div>';
       cover.id = "window_maximise_cover";
       cover.className = "window-animate-appendix maximise-cover-box";
-      document.body.appendChild(cover);
+      this.$(this.containerId).appendChild(cover);
       this.COVERING = true;
       var self = this;
       if(top<=-10&&e.pageX<=5){
