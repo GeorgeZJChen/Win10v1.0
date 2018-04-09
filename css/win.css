@@ -34,10 +34,7 @@ body{
   min-height: 130px;
 }
 .window-container{
-  width: 0px;
-  height: 0px;
   overflow: visible;
-  position: absolute;
   z-index: 0;
 }
 .window-content{
