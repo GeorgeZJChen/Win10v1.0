@@ -1,0 +1,4 @@
+{
+  "name": "Atom",
+  "iconHTML":  "<span style='transform: scale(0.3) translate(-110%,-110%);' class='icon-atom'> <span class='icon-atom-oval'></span><span class='icon-atom-oval icon-atom-oval-1'></span><span class='icon-atom-oval icon-atom-oval-2'></span></span>"
+}

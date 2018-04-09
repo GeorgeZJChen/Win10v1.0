@@ -1,0 +1,5 @@
+{
+  "name": "Kugou Music",
+  "color": "rgba(26,27,139, 0.7)",
+  "iconHTML": "<span style='transform: scale(0.3) translate(-115%,-115%);' class='icon-kugou' id='item-task-kugou-span'></span>"
+}

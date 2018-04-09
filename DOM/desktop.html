@@ -1,0 +1,231 @@
+<div class="desktop" id="desktop">
+  <div id="desktop_container">
+    <div id="desktop_items_container"></div>
+    <div id="desktop_selection_container"></div>
+  </div>
+  <div class="window-container" id="window_container"></div>
+  <input type="checkbox" class="switch" id="start_menu_switch">
+  <div class="begin-menu" id="start_menu">
+      <input type="radio" name="bm-col-switch" class="switch" id="bm-col-switch-1" checked="checked">
+      <div class="act-hover act-hover-bm-col-switch"></div>
+      <input type="radio" name="bm-col-switch" class="switch" id="bm-col-switch-2">
+      <div class="act-hover act-hover-bm-col-switch right"></div>
+      <div class="bm-col" id="bm-col-1">
+        <div class="items-top">
+          <div class="item-bm"><span id="item-bm-unfold-span"></span></div>
+        </div>
+        <div class="items-bottom">
+          <div class="item-bm"><span id="item-bm-user-span"></span></div>
+          <div class="item-bm"><span id="item-bm-file-expr-span"></span></div>
+          <div class="item-bm"><span id="item-bm-config-span"></span></div>
+          <div class="item-bm"><span id="item-bm-shutdown-span"></span></div>
+        </div>
+      </div>
+      <div class="bm-col" id="bm-col-2">
+        <div class="scrollbar-bm">
+          <div class="scrollbar-bm-up"><span class="icon-angle up sm scrollbar-bm-angle"></span></div>
+          <div class="scrollbar-bm-slide">
+            <div class="scrollbar-bm-slide-block"></div>
+          </div>
+          <div class="scrollbar-bm-down"><span class="icon-angle down sm scrollbar-bm-angle"></span></div>
+        </div>
+        <div class="content" id="bm-col-2-content">
+          <div class="item-bm section-title" data-title="Latest"></div>
+          <div class="item-bm" onclick="desktop.createWindow(this)" data-title="Eclipse Neon"><span class="bm-col-2-icon"><span class="icon-eclipse"><span class="icon-eclipse-sub"></span></span></span></div>
+          <div class="item-bm section-title" data-title="Often"></div>
+          <div class="item-bm" onclick="desktop.createWindow(this)" data-title="Google Chrome"><span class="bm-col-2-icon" style="background:#212121"><span class="icon-chrome-small"><span class="icon-chrome-small-part-united"></span><span class="icon-chrome-small-centre"></span></span></span><span></span></div>
+          <div class="item-bm" data-title="Atom" onclick="desktop.createWindow(this)" data-url="DOM/windows/Atom.json">
+            <span class="bm-col-2-icon">
+              <span class="icon-atom">
+                <span class="icon-atom-oval"></span>
+                <span class="icon-atom-oval icon-atom-oval-1"></span>
+                <span class="icon-atom-oval icon-atom-oval-2"></span>
+              </span>
+            </span>
+          </div>
+          <div class="item-bm section-title" data-title="A"></div>
+          <div class="item-bm" onclick="desktop.createWindow(this)" data-url="DOM/windows/example.json" data-title=""><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm section-title" data-title="B"></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm section-title" data-title="Z"></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+          <div class="item-bm" data-title="" onclick="desktop.createWindow(this)"><span class="bm-col-2-icon"></span></div>
+        </div>
+      </div>
+      <div class="bm-col" id="bm-col-3">
+        <div class="scrollbar-bm">
+          <div class="scrollbar-bm-up"><span class="icon-angle up sm scrollbar-bm-angle"></span></div>
+          <div class="scrollbar-bm-slide">
+            <div class="scrollbar-bm-slide-block"></div>
+          </div>
+          <div class="scrollbar-bm-down"><span class="icon-angle down sm scrollbar-bm-angle"></span></div>
+        </div>
+        <div class="content" id="bm-col-3-content">
+          <div class="sub-content">
+            <div class="title"><span>Lives</span></div>
+            <div class="boxes">
+              <div class="box box-4" style="background-color:#515c6b" id="box-date"><span id="box-date-span" data-week="Tuesday" data-day="21"></span></div>
+              <div class="box box-8" data-title="Email" style="background-color:#515c6b"><span id="box-mailbox-span"></span></div>
+              <div class="box box-4" data-title="Cortana" style="background-color:#515c6b"><span id="box-cortana-span"></span></div>
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)" data-url="DOM/windows/example2.json" style="background-color:#515c6b"></div>
+              <div class="box box-4 box-container">
+                <div class="box box-1 box-sub"></div>
+                <div class="box box-1" style="background-color:#515c6b"></div>
+                <div class="box box-1" style="background-color:#515c6b"></div>
+                <div class="box box-1" style="background-color:#515c6b"></div>
+              </div>
+              <div class="box box-4 box-animating box-climate">
+                <div class="box-page-container box-climate-sibling-0" data-city="Beijing">
+                  <div class="slide-page act-hover" style="background:#18202f;background:-webkit-gradient(linear,0% 10%,0% 100%,from(#18202f),color-stop(0.5, #1f2939),color-stop(0.9, #2f3947),to(#323c4b));">
+                    <p data-weather="Rain"></p>
+                    <p data-tem="3°"></p>
+                    <span data-max="16°" data-min="1°"></span>
+                  </div>
+                </div>
+                <div class="box-page-container box-climate-sibling-1" data-city="Guangzhou">
+                  <div class="slide-page act-hover" style="background:#1b5787;background:-webkit-gradient(linear,0 0,0% 100%,from(#1b5787),to(#69b8f0));">
+                    <p data-weather="Light Rain"></p>
+                    <p data-tem="16°"></p>
+                    <span data-max="19°" data-min="13°"></span>
+                  </div>
+                  <div class="slide-page act-hover" style="background:#0e7fdf;background:-webkit-gradient(linear,0 0,0% 100%,from(#0e7fdf),to(#69b8f0));">
+                    <p data-weather="Sunny"></p>
+                    <p data-tem="20°"></p>
+                    <span data-max="25°" data-min="17°"></span>
+                  </div>
+                  <div class="slide-page act-hover" style="background:#88a9ca;background:-webkit-gradient(linear,0 0,0% 100%,from(#88a9ca),to(#bcd3e3));">
+                    <p data-weather="Rain"></p>
+                    <p data-tem="13°"></p>
+                    <span data-max="15°" data-min="11°"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="box box-4" data-title="Skype" style="background-color:#0078d7"><span class="icon-skype" id="box-skype-span"></span></div>
+              <div class="box box-4" data-title="QQ" style="background-color:#515c6b"><span id="box-QQ-span"><span id="box-QQ-span-sub"></span></span></div>
+              <div class="box box-4" data-title="WeChat" onclick="desktop.createWindow(this)" data-url="DOM/windows/WeChat.json" style="background-color:#515c6b"><span class="icon-WeChat" id="box-WeChat-span"><span class="icon-WeChat-sub1"></span><span class="icon-WeChat-sub2"></span></span></div>
+              <div class="box box-4" data-title="Eclipse Neon" style="background-color:#515c6b"><span class="icon-eclipse" id="box-eclipse-span"><span class="icon-eclipse-sub"></span></span></div>
+            </div>
+          </div>
+          <div class="sub-content">
+            <div class="title"><span>Play</span></div>
+            <div class="boxes">
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)"></div>
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)"></div>
+              <div class="box box-4" data-title="Movies" style="background-color:#515c6b"><span id="box-video-span"></span></div>
+              <div class="box box-4" data-title="BBC News" style="background-color:#9c0a0d"><span id="box-BBC-span"></span></div>
+              <div class="box box-4" data-title="Kugou" onclick="desktop.createWindow(this)" data-url="DOM/windows/Kugou.json" style="background-color:#1a478b"><span class="icon-kugou" id="box-kugou-span"></span></div>
+              <div class="box box-4" data-title="Baidu Cloud" onclick="desktop.createWindow(this)" data-url="DOM/windows/BaiduCloud.json" style="background-color:#3888ff"><span class="icon-baiduCloud-span" id="box-baiduCloud-span"><span class="icon-baiduCloud-span-sub"></span></span></div>
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)"></div>
+              <div class="box box-8" data-title="" style="background-color:#d13438"><span id="box-info-span"><span id="box-info-span-sub"></span></span></div>
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)">
+              </div>
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)" style="background-color:#80397b"></div>
+              <div class="box box-4 box-container">
+                <div class="box box-1 box-Word" onclick="desktop.createWindow(this)" style="background-color:#4269a5"></div>
+                <div class="box box-1 box-PowerPoint" onclick="desktop.createWindow(this)" style="background-color:#dc6141"></div>
+                <div class="box box-1 box-Excel" onclick="desktop.createWindow(this)" style="background-color:#39825a"></div>
+                <div class="box box-1 box-sub"></div>
+              </div>
+              <div class="box box-4" data-title="" onclick="desktop.createWindow(this)" style="background-color:#515c6b"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="taskbar" id="taskbar">
+      <div class="taskbar-left">
+        <div class="items-sys">
+          <div class="item" id="item-menu">
+            <span id="item-menu-span"></span>
+          </div>
+          <div class="item" id="item-cortana" onclick="desktop.reopenAllWindows()">
+            <span id="item-cortana-span"></span>
+          </div>
+        </div>
+        <input type="checkbox" class="switch resp-max486" id="items-task-switch">
+        <div class="item act-hover resp-max486" id="act-hover-items-task-switch"><span class="icon-angle up" id="act-hover-items-task-switch-span"></span></div>
+        <div class="items-task resp-pos486">
+          <div class="item item-task" onclick="desktop.addWindow({});desktop.closeMenu();"><span class="item-task-icon-ct"><span class="icon-task icon-files"></span></span></div>
+          <div class="item item-task" onclick="desktop.createWindow(this)" data-url="DOM/windows/Kugou.json"><span class="item-task-icon-ct"><span class="icon-kugou" id="item-task-kugou-span"></span></span></div>
+          <div class="item item-task" onclick="desktop.createWindow(this)" data-url="DOM/windows/Atom.json">
+            <span class="item-task-icon-ct">
+              <span class="icon-atom" id="item-task-atom-span">
+                <span class="icon-atom-oval"></span>
+                <span class="icon-atom-oval icon-atom-oval-1"></span>
+                <span class="icon-atom-oval icon-atom-oval-2"></span>
+              </span>
+            </span>
+          </div>
+          <div class="item item-task" onclick="desktop.createWindow(this)" data-url="DOM/windows/WeChat.json"><span class="item-task-icon-ct"><span class="icon-task icon-WeChat coloured-WeChat"><span class="icon-WeChat-sub1"></span><span class="icon-WeChat-sub2"></span></span></span></div>
+        </div>
+      </div>
+      <div class="taskbar-right">
+          <div class="item item-r" id="item-show-desktop"></div>
+          <div class="item item-r" id="item-manipulation"><span id="item-manipulation-span"></span></div>
+          <div class="item item-r" id="item-date-time">
+            <div class="time">
+              <span>10:10</span>
+            </div>
+            <div class="date">
+              <span>2017/3/3</span>
+            </div>
+          </div>
+          <div class="item-r items-bg">
+            <div class="item item-bg switch" id="item-switch-bg">
+              <input class="switch" id="more-bg-switch" type="checkbox">
+              <div class="act-hover" id="act-hover-more-bg-switch"></div>
+              <span class="icon-angle up" id="more-bg-switch-span"></span>
+              <div id="more-items-bg">
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-default-a"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-default-c"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-default-b"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-default-a"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-default-b"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-default-b coloured-icon-default"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-teamviewer"><span class="icon-teamviewer-sub"></span></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="icon-kugou-sm"></span></span></div>
+                <div class="item item-bg item-bg-sk"><span class="item-bg-sk-icon"><span class="microphone-bg-span"></span></span></div>
+                <!--copies of item-bg, displays when screen size diminishes-->
+                <div class="item item-bg-sk resp-max640"><span class="item-bg-sk-icon"><span class="icon-WeChat coloured-WeChat WeChat-bg-span"><span class="icon-WeChat-sub1"></span><span class="icon-WeChat-sub2"></span></span></span></div>
+                <div class="item item-bg-sk resp-max640"><span class="item-bg-sk-icon"><span class="youtube-bg-span"></span></span></div>
+                <div class="item item-bg-sk resp-max640"><span class="item-bg-sk-icon"><span class="battery-bg-span"></span></span></div>
+                <div class="item item-bg-sk resp-max640"><span class="item-bg-sk-icon"><span class="volume-bg-span"></span></span></div>
+                <div class="item item-bg-sk resp-max640"><span class="item-bg-sk-icon WLAN-bg-span"><span class="WLAN-bg-span-sub"></span></span></div>
+                <div class="item item-bg-sk resp-max640"><span class="item-bg-icon input-language-bg-span" data-content="英"></span></div>
+              </div>
+            </div>
+            <div class="item item-bg resp-min640"><span class="item-bg-icon"><span class="icon-WeChat coloured-WeChat WeChat-bg-span"><span class="icon-WeChat-sub1"></span><span class="icon-WeChat-sub2"></span></span></span></div>
+            <div class="item item-bg resp-min640"><span class="item-bg-icon"><span class="youtube-bg-span"></span></span></div>
+            <div class="item item-bg resp-min640"><span class="item-bg-icon"><span class="battery-bg-span"></span></span></div>
+            <div class="item item-bg resp-min640"><span class="item-bg-icon"><span class="volume-bg-span"></span></span></div>
+            <div class="item item-bg resp-min640"><span class="item-bg-icon WLAN-bg-span"><span class="WLAN-bg-span-sub"></span></span></div>
+            <div class="item item-bg resp-min640"><span class="item-bg-icon input-language-bg-span" data-content="英"></span></div>
+          </div>
+      </div>
+  </div>
+  <div id="height_keeper" style="visibility:hidden;position:fixed;height:100%;width:100%"><!--this element is for getting height of html--></div>
+</div>

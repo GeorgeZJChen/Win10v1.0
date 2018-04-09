@@ -1,0 +1,5 @@
+{
+  "name": "微信",
+  "color": "rgba(42,42,42, 0.9)",
+  "iconHTML": "<span style='transform: scale(0.35) translate(-77%,-59%);' class='icon-task icon-WeChat coloured-WeChat'><span class='icon-WeChat-sub1'></span><span class='icon-WeChat-sub2'></span></span>"
+}
