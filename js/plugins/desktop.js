@@ -134,7 +134,7 @@
 
           if(!moved&&Math.abs(mx-x)<5&&Math.abs(my-y)<5) return;
 
-          var width = 0
+          var width = 0;
           var height = 0;
           var top = y;
           var left = x;
@@ -924,8 +924,34 @@
         '<span class="icon-window-folder-inner"></span></span>';
       var droppedOn = function(e, obj){
         console.log(obj.items);
+        var div = document.createElement('div');
+        div.style.position = 'absolute';
+        // div.style.
+        this.$(this.id+'_content').appendChild(div);
+        for (var i = 0; i < obj.items.length; i++) {
+          var copyItem = obj.items[i].cloneNode(true);
+          copyItem.id = "";
+          copyItem.getElementsByClassName('item-desktop-check')[0].name = "Noname";
+          div.appendChild(copyItem);
+        }
       }
-
+      var afterMinimise = function(){
+        var div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style.bottom = 0;
+        div.style.background = '#fff';
+        div.style.color = '#000';
+        div.style.fontSize = '13px';
+        div.style.maxWidth = '190px';
+        div.innerHTML = "Click this little <span style='color:#00009d'>ring</span> to reopen the window<span style='color:#83c'>↓</span>";
+        document.body.appendChild(div);
+        var self = this;
+        setTimeout(function(){
+          self.fadeOut(div, 500, 0, function(){
+            if(div) div.parentNode.removeChild(div);
+          });
+        }, 2000);
+      }
       if(top<-10) top=0;
       if(left>scWidth-width +10) left = scWidth-width;
       if(!this.window_id_keeper){ //if no window has been added
@@ -933,7 +959,7 @@
         var name = obj.name || "new window " + 1;
         new AnimateWin({id:"window_"+1, containerId: this.windowContainerId, name: name,
           iconHTML: iconHTML, color: color, top: top, left:left, width:width, height:height,
-          droppedOn: droppedOn
+          droppedOn: droppedOn, afterMinimise: afterMinimise
         });
         return;
       }
@@ -964,7 +990,7 @@
       var name = obj.name || "new window " + id;
       new AnimateWin({id:"window_"+id, containerId: this.windowContainerId, name: name,
         iconHTML: iconHTML, color: color, top: top, left:left, width:width, height:height,
-        droppedOn: droppedOn
+        droppedOn: droppedOn, afterMinimise: afterMinimise
       });
       return;
     },
