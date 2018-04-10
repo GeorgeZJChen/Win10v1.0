@@ -47,7 +47,7 @@ body{
 }
 .window-content-selection{
   position: absolute;
-  overflow: hidden;
+  overflow: auto;
 }
 .window-selection-area{
   box-sizing: border-box;
