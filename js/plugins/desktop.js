@@ -151,9 +151,6 @@
             ";height:"+0+"px"+
             ";top:"+0+"px"+
             ";left:"+0+"px"+
-            ";visibility:visible"+
-            ";max-width:none"+
-            ";max-height:none"+
             ";}";
             area.appendChild(style);
             container.appendChild(area);
