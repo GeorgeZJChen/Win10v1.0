@@ -169,7 +169,7 @@ body{
 .taskbar {
   display: flex;
   position: fixed;
-  z-index: 100;
+  z-index: 9999998;
   bottom: 0;
   height: 40px;
   width: 100%;
@@ -433,7 +433,7 @@ body{
 
 .begin-menu{
   position: fixed;
-  z-index: 99999999;
+  z-index: 9999997;
   bottom: 35px;
   height: 0;
   width: 950px;
@@ -484,7 +484,7 @@ body{
 
 #start_menu_switch {
   position: fixed;
-  z-index: 101;
+  z-index: 9999999;
   bottom: 0;
   width: 46px;
   height: 40px;
