@@ -168,7 +168,8 @@
           }
           if(my-y>0){
             height = my-y;
-            max_height = container.offsetHeight-y + 'px';
+            var ch = container.offsetHeight;
+            if(height>=ch-y) height=ch-y;
           } else {
             height = y-my;
             if(height >= y) height = y;
@@ -178,8 +179,7 @@
             top: top+'px',
             left: left+'px',
             height: height+'px',
-            width: width+'px',
-            max_height: max_height
+            width: width+'px'
           }, style);
           container.style.zIndex = 10;
 
