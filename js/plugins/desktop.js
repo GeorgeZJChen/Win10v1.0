@@ -160,11 +160,6 @@
 
             self._deselectLattice();
           }
-          self.setCss({
-            top: y+'px',
-            left: x+'px'
-          }, style);
-
           if(mx-x>0) {
             width = mx-x;
           } else {
