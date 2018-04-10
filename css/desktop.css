@@ -431,7 +431,7 @@ body{
   }
 }
 
-.begin-menu{
+.start-menu{
   position: fixed;
   z-index: 9999997;
   bottom: 35px;
@@ -502,7 +502,7 @@ body{
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
-#start_menu_switch:checked+.begin-menu{
+#start_menu_switch:checked+.start-menu{
   bottom: 40px;
   height: 520px;
   visibility: visible;
@@ -513,16 +513,16 @@ body{
 #bm-col-3-content>.sub-content>.boxes>.box{
   margin-top: 20px!important;
 }
-#start_menu_switch:checked+.begin-menu>#bm-col-3>#bm-col-3-content>.sub-content>.boxes>.box{
+#start_menu_switch:checked+.start-menu>#bm-col-3>#bm-col-3-content>.sub-content>.boxes>.box{
   margin-top: 2px!important;
   transition: margin-top 0.4s cubic-bezier(0, 0, 0, 1);
 }
-#start_menu_switch:checked+.begin-menu>#bm-col-2>#bm-col-2-content>.item-bm{
+#start_menu_switch:checked+.start-menu>#bm-col-2>#bm-col-2-content>.item-bm{
   margin-top: 0;
   transition: margin-top 0.4s cubic-bezier(0, 0, 0, 1);
 }
 
-.begin-menu>.bm-col{
+.start-menu>.bm-col{
   display: inline-block;
   height: 100%;
   overflow: hidden;
@@ -749,7 +749,7 @@ input[name="bm-col-switch"]:active+.act-hover-bm-col-switch{
   left: 50%;
 }
 @media (max-width: 930px) {
-  .begin-menu{
+  .start-menu{
     /*overflow: hidden;*/
     width: 620px;
   }
@@ -767,7 +767,7 @@ input[name="bm-col-switch"]:active+.act-hover-bm-col-switch{
   input[name="bm-col-switch"], .act-hover-bm-col-switch{
     display: block;
   }
-  .begin-menu{
+  .start-menu{
     overflow: hidden;
     width: 330px;
   }
