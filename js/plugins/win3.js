@@ -570,8 +570,6 @@
             y = e.clientY || e.offsetY,
             sTop = this.offsetTop + this.parentNode.offsetTop + self.win.offsetTop,
             sLeft = this.offsetLeft + this.parentNode.offsetLeft + self.win.offsetLeft,
-            sWidth = this.offsetWidth,
-            sHeight = this.offsetHeight,
             selectionContent = this,
             moved = false,
             area;
@@ -583,37 +581,30 @@
               if(!moved&&Math.abs(mx-x)<5&&Math.abs(my-y)<5) return;
               var width = 0;
               var height = 0;
-              var top = y - sTop;
-              var left = x - sLeft;
+              var top = y - sTop + selectionContent.scrollTop;
+              var left = x - sLeft + selectionContent.scrollLeft;
               if(!moved){
                 area = document.createElement('div');
                 area.className = 'window-selection-area';
                 selectionContent.appendChild(area);
-                // self._deselectLattice();
               }
               if(mx-x>0) {
                 width = mx-x;
               } else {
                 width = x-mx;
-                left = x - sLeft - width;
+                left = x - sLeft - width + selectionContent.scrollLeft;
               }
               if(my-y>0){
                 height = my-y;
               } else {
                 height = y-my;
-                top = y - sTop - height;
+                top = y - sTop - height + selectionContent.scrollTop;
               }
               area.style.top = top+'px';
               area.style.left = left+'px';
               area.style.height = height+'px';
               area.style.width = width+'px';
               area.style.zIndex = 10;
-
-              // var input = self.getCheckedItemInput();
-              // if(input) input.checked = false;
-              //
-              // self._selectColumns(x, mx);
-              // self._selectRows(y, my);
 
               moved = true;
             };
