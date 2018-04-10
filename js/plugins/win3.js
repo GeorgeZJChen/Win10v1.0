@@ -17,6 +17,7 @@
     this.minWidth = obj.minWidth || 170;
     this.minHeight = obj.minHeight || 130;
     this.iconHTML = obj.iconHTML; //|| '<span class="icon-window-folder"><span class="icon-window-folder-inner"></span></span>';
+    this.contentHTML = obj.contentHTML;
 
     this.resizable = obj.resizable || this.resizable || true;
     this.draggable = obj.draggable || this.draggable || true;
@@ -98,41 +99,7 @@
       if (this.resizable) this._resize();
       this._bindEvents();
       this.content = this.$(id + "_content");
-      var self = this;
-      this.addEvent(window, "resize", function(){
-        var wins = self.wins;
-        for (var i = 0; i < wins.length; i++) {
-          var win = wins[i].win;
-          if(win.offsetTop<-10){
-            wins[i].setCss({
-              top: 0 + 'px'
-            });
-            wins[i].top = 0;
-          }
-          if(win.offsetLeft > document.body.offsetWidth - 200){
-            wins[i].setCss({
-              left: document.body.offsetWidth - 200 +'px'
-            });
-            wins[i].left = document.body.offsetWidth - 200;
-          }
-          if(win.offsetLeft < -(win.offsetWidth-200)){
-            wins[i].setCss({
-              left: win.offsetWidth-200 +'px'
-            });
-            wins[i].left = win.offsetWidth - 200;
-          }
-          var btn = wins[i].$(wins[i].id+"_maximise");
-          if(btn&&wins[i].hasClass(btn, 'max')){
-            var b = document.body;
-            wins[i].setCss({
-              width: b.offsetWidth + "px",
-              height: b.offsetHeight + "px",
-              top: b.scrollTop + "px",
-              left: b.scrollLeft + "px"
-            });
-          }
-        }
-      });
+      this._contentSelection();
       this.show();
       this.onCreate();
     },
@@ -163,7 +130,8 @@
         '<div class="dot left-bottom"></div>' +
         '</div>';
 
-      html += '<div class="window-content" id="' + id + '_content"></div>';
+      html += '<div class="window-content" id="' + id + '_content">'+
+        '<div style="width:100%;height:100%;top:0px;left:0px" class="window-content-selection"></div></div>';
       var win = document.createElement("div");
       win.id = id;
       win.className = "window " + this.className;
@@ -452,7 +420,41 @@
           e.drop = self.droppedOn(e, self.__objects_dropped__);
           self.__objects_were_dragged_on__ = false;
         }
-      }
+      };
+      this.addEvent(window, "resize", function(){
+        var wins = self.wins;
+        for (var i = 0; i < wins.length; i++) {
+          var win = wins[i].win;
+          if(win.offsetTop<-10){
+            wins[i].setCss({
+              top: 0 + 'px'
+            });
+            wins[i].top = 0;
+          }
+          if(win.offsetLeft > document.body.offsetWidth - 200){
+            wins[i].setCss({
+              left: document.body.offsetWidth - 200 +'px'
+            });
+            wins[i].left = document.body.offsetWidth - 200;
+          }
+          if(win.offsetLeft < -(win.offsetWidth-200)){
+            wins[i].setCss({
+              left: win.offsetWidth-200 +'px'
+            });
+            wins[i].left = win.offsetWidth - 200;
+          }
+          var btn = wins[i].$(wins[i].id+"_maximise");
+          if(btn&&wins[i].hasClass(btn, 'max')){
+            var b = document.body;
+            wins[i].setCss({
+              width: b.offsetWidth + "px",
+              height: b.offsetHeight + "px",
+              top: b.scrollTop + "px",
+              left: b.scrollLeft + "px"
+            });
+          }
+        }
+      });
     },
     /**
      * maximises the window or undoes maximisation
@@ -556,6 +558,78 @@
         self.afterClose();
       })
       return this;
+    },
+    _contentSelection: function(){
+      var self = this;
+      var children = this.$(this.id + "_content").children;
+      for (var i = 0; i < children.length; i++) {
+        if(this.hasClass(children[i], "window-content-selection")){
+          this.addEvent(children[i], "mousedown", function (e){
+            e = e || window.event;
+            var x = e.clientX || e.offsetX,
+            y = e.clientY || e.offsetY,
+            sTop = this.offsetTop + this.parentNode.offsetTop + self.win.offsetTop,
+            sLeft = this.offsetLeft + this.parentNode.offsetLeft + self.win.offsetLeft,
+            sWidth = this.offsetWidth,
+            sHeight = this.offsetHeight,
+            selectionContent = this,
+            moved = false,
+            area;
+
+            var dmove = function (e) { //mousemove
+              e = e || window.event;
+              var mx = e.clientX;
+              var my = e.clientY; //(mx, my), end point
+              if(!moved&&Math.abs(mx-x)<5&&Math.abs(my-y)<5) return;
+              var width = 0;
+              var height = 0;
+              var top = y - sTop;
+              var left = x - sLeft;
+              if(!moved){
+                area = document.createElement('div');
+                area.className = 'window-selection-area';
+                selectionContent.appendChild(area);
+                // self._deselectLattice();
+              }
+              if(mx-x>0) {
+                width = mx-x;
+              } else {
+                width = x-mx;
+                left = x - sLeft - width;
+              }
+              if(my-y>0){
+                height = my-y;
+              } else {
+                height = y-my;
+                top = y - sTop - height;
+              }
+              area.style.top = top+'px';
+              area.style.left = left+'px';
+              area.style.height = height+'px';
+              area.style.width = width+'px';
+              area.style.zIndex = 10;
+
+              // var input = self.getCheckedItemInput();
+              // if(input) input.checked = false;
+              //
+              // self._selectColumns(x, mx);
+              // self._selectRows(y, my);
+
+              moved = true;
+            };
+            var dup = function (e) { //mouseup, makes position variables inherent to the window
+              self.removeEvent(document, "mousemove", dmove);
+              self.removeEvent(document, "mouseup", dup);
+              if(!moved) return;
+              if(area)selectionContent.removeChild(area);
+              selectionContent.style.zIndex = "auto";
+            };
+            self.addEvent(document, "mousemove", dmove);
+            self.addEvent(document, "mouseup", dup);
+          });
+
+        }
+      }
     },
     /**
      * pushes the window to the tail of the array and displays it on the front and selects the window
@@ -693,6 +767,12 @@
         else arr[i] = "";
       }
       return arr;
+    },
+    getStyle: function(element, att){
+      if(window.getComputedStyle)
+        return window.getComputedStyle(element)[att];
+      else
+        return element.currentStyle[att];
     },
     hide: function(){
       var win = this.win;
