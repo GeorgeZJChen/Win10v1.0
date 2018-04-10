@@ -433,7 +433,7 @@ body{
 
 .begin-menu{
   position: fixed;
-  z-index: 99;
+  z-index: 99999999;
   bottom: 35px;
   height: 0;
   width: 950px;
