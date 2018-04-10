@@ -924,15 +924,12 @@
         '<span class="icon-window-folder-inner"></span></span>';
       var droppedOn = function(e, obj){
         console.log(obj.items);
-        var div = document.createElement('div');
-        div.style.position = 'absolute';
-        // div.style.
-        this.$(this.id+'_content').appendChild(div);
+
         for (var i = 0; i < obj.items.length; i++) {
           var copyItem = obj.items[i].cloneNode(true);
           copyItem.id = "";
           copyItem.getElementsByClassName('item-desktop-check')[0].name = "Noname";
-          div.appendChild(copyItem);
+          this.$(this.id+'_content').getElementsByClassName('window-content-selection')[0].appendChild(copyItem);
         }
       }
       var afterMinimise = function(){
