@@ -1,9 +1,5 @@
 (function(){
 
-  /**
-   * win.onMouseDown is used in here
-   * @param {[type]} obj [description]
-   */
   var Desktop = function(obj){
     if (!window.Win) throw new Error("'Win' not found.");
 
@@ -250,7 +246,7 @@
         for (var j = 0; j < column.length; j++) {
           var item = column[j];
           if(!item) continue;
-          this.removeClass(item, "item-desktop-selected");
+          this.removeClass(item, "desktop-item-selected");
           item.selected = false;
         }
       }
@@ -262,11 +258,11 @@
       var lattice = p.lattice;
       var self = this;
       var select = function(item, column, row){
-        self.addClass(item, "item-desktop-selected");
+        self.addClass(item, "desktop-item-selected");
         item.selected = true;
       };
       var deselect = function(item, column, row){
-        self.removeClass(item, "item-desktop-selected");
+        self.removeClass(item, "desktop-item-selected");
         item.selected = false;
       }
       var column = [];
@@ -307,7 +303,7 @@
           var item = column[j];
           if(!item) continue
           if(!item.selected) continue;
-          this.removeClass(item, "item-desktop-selected");
+          this.removeClass(item, "desktop-item-selected");
           item.selected = false;
         }
       }
@@ -326,7 +322,7 @@
       return items;
     },
     getCheckedItemInput: function(){
-      var inputs = document.getElementsByName('item-desktop-check');
+      var inputs = document.getElementsByName('desktop-item-check');
       var checkedOne;
       for(var i=0; i<inputs.length; i++){
         if(inputs[i].checked) {
@@ -339,18 +335,18 @@
       if(!this.checkAvailablePosition(column, row, assert)) return false;
       var item = document.createElement('div');
 
-      item.className = 'item-desktop';
+      item.className = 'desktop-item';
       item.id = id;
       item.data = {};
       item.data.name = name;
       item.data.droppable = true;
       var html = ''+
-        '<div class="item-desktop-icon">'+
+        '<div class="item-icon">'+
           '<span class="icon-window-folder"><span class="icon-window-folder-inner"></span></span>'+
         '</div>'+
-        '<input type="radio" ondblclick="desktop.createWindow(this);this.checked=false" name="item-desktop-check" class="item-desktop-check" onblur="this.parentNode.style.zIndex=\'auto\';" onfocus="this.parentNode.style.zIndex=1;">'+
-        '<div class="item-desktop-background"></div>'+
-        '<div class="item-desktop-text" data-title="${name}"></div>';
+        '<input type="radio" ondblclick="desktop.createWindow(this);this.checked=false" name="desktop-item-check" class="item-check" onblur="this.parentNode.style.zIndex=\'auto\';" onfocus="this.parentNode.style.zIndex=1;">'+
+        '<div class="item-background"></div>'+
+        '<div class="item-text" data-title="${name}"></div>';
 
       html = html.replace("${name}", name);
 
@@ -428,7 +424,7 @@
                 var ac = 1/((Math.pow(1.1*(distance),2)+2) *0.5);//attenuation coefficient
                 copyItem.style.opacity = ac *opacity;
               }
-              self.addClass(copyItem, "item-desktop-dragging-shawdow");
+              self.addClass(copyItem, "desktop-item-dragging-shawdow");
               copyItem.id = item.id + "__XCRJGqbCPSFO";
               dc.appendChild(copyItem);
             }
@@ -441,7 +437,7 @@
                 children[i].checked = false;
               }
             }
-            self.addClass(copyItem, "item-desktop-dragging-shawdow");
+            self.addClass(copyItem, "desktop-item-dragging-shawdow");
             copyItem.style.opacity = opacity;
             copyItem.id = item.id + "__XCRJGqbCPSFO";
             dc.appendChild(copyItem);
@@ -458,7 +454,7 @@
 
           var tag = document.createElement('div');
           tag.id = "__XCRJGqbCPSFO1";
-          tag.className = "item-desktop-dragging-tag";
+          tag.className = "desktop-item-dragging-tag";
           tag.style.height = 20 +'px';
           tag.style.zIndex = 2;
           tag.style.overflow = "hidden";
@@ -472,9 +468,9 @@
           var tagDOM = function(action, aim){
             tag.style.visibility = "visible";
             tag.innerHTML = ""+
-                "<p class='item-desktop-dragging-tag-p'>"+
-                "<span class='item-desktop-dragging-tag-action'>"+ action +"</span>"+
-                "<span class='item-desktop-dragging-tag-aim'>"+ aim +"</span></p>";
+                "<p class='desktop-item-dragging-tag-p'>"+
+                "<span class='desktop-item-dragging-tag-action'>"+ action +"</span>"+
+                "<span class='desktop-item-dragging-tag-aim'>"+ aim +"</span></p>";
             tag.style.top = Math.min(my+12, document.body.offsetHeight+20) +'px';
             tag.style.left = Math.min(mx+13, document.body.offsetWidth-tag.offsetWidth) +'px';
           }
@@ -928,7 +924,9 @@
         for (var i = 0; i < obj.items.length; i++) {
           var copyItem = obj.items[i].cloneNode(true);
           copyItem.id = "";
-          copyItem.getElementsByClassName('item-desktop-check')[0].name = "Noname";
+          copyItem.className = "window-item";
+          copyItem.setAttribute("style", "");
+          copyItem.getElementsByClassName('item-check')[0].name = "Noname";
           this.$(this.id+'_content').getElementsByClassName('window-content-selection')[0].appendChild(copyItem);
         }
       }

@@ -51,36 +51,32 @@ body{
   position: absolute;
   margin: 6px 0px 0px 1px;
 }
-.item-desktop{
+.desktop-item{
   position: absolute;
   width: 72px;
   overflow: visible;
 }
-.item-desktop-text{
+.desktop-item>.item-text{
   max-height: 32px;
   overflow: hidden;
   width: 68px;
   text-align: center;
   margin: 1px 2px 1px 2px;
-  top: 46px;
   font-size: 12px;
   text-shadow: 1px 1px 1px #000, -1px 0px 1px #000;
 }
-.item-desktop-text:before{
+.desktop-item>.item-text:before{
   content: attr(data-title);
   overflow: hidden;
   height: 100%;
   width: 100%;
 }
-.item-desktop:hover{
-
-}
-.item-desktop-icon{
+.desktop-item>.item-icon{
   margin: auto;
   width: 46px;
   height: 46px;
 }
-.item-desktop-check{
+.desktop-item>.item-check{
   position: absolute;
   z-index: 1;
   top: 0;
@@ -89,45 +85,45 @@ body{
   margin: 0;
   opacity: 0;
 }
-.item-desktop-check:checked~.item-desktop-text{
+.desktop-item>.item-check:checked~.item-text{
   max-height: 300px;
 }
-.item-desktop-check:hover~.item-desktop-background{
+.desktop-item>.item-check:hover~.item-background{
   background-color: rgba(217, 236, 255, 0.15);
   outline: 1px solid rgba(217, 236, 255, 0.36);
 }
-.item-desktop-check:checked~.item-desktop-background{
+.desktop-item>.item-check:checked~.item-background{
   background-color: rgba(181, 218, 255, 0.3);
   outline: 1px solid rgba(217, 236, 255, 0.51);
 }
-.item-desktop-check:active~.item-desktop-background{
+.desktop-item>.item-check:active~.item-background{
   background-color: rgba(138, 191, 244, 0.25);
   outline: 1px solid rgba(217, 236, 255, 0.36);
 }
-.item-desktop-check:checked:hover~.item-desktop-background{
+.desktop-item>.item-check:checked:hover~.item-background{
   background-color: rgba(138, 191, 244, 0.25);
   outline: 1px solid rgba(217, 236, 255, 0.36);
 }
-.item-desktop.item-desktop-selected>.item-desktop-background{
+.desktop-item.desktop-item-selected>.item-background{
   background-color: rgba(181, 218, 255, 0.3);
   outline: 1px solid rgba(217, 236, 255, 0.51);
 }
-.item-desktop.item-desktop-selected:hover>.item-desktop-background{
+.desktop-item.desktop-item-selected:hover>.item-background{
   background-color: rgba(138, 191, 244, 0.25);
   outline: 1px solid rgba(217, 236, 255, 0.36);
 }
-.item-desktop.item-desktop-dragging-shawdow>.item-desktop-check:checked~.item-desktop-background{
+.desktop-item.desktop-item-dragging-shawdow>.item-check:checked~.item-background{
   background-color: transparent;
   outline: none;
 }
-.item-desktop.item-desktop-selected.item-desktop-dragging-shawdow>.item-desktop-background{
+.desktop-item.desktop-item-selected.desktop-item-dragging-shawdow>.item-background{
   background-color: transparent;
   outline: none;
 }
-.item-desktop.item-desktop-dragging-shawdow>.item-desktop-text{
+.desktop-item.desktop-item-dragging-shawdow>.item-text{
   max-height: 300px;
 }
-.item-desktop-background{
+.desktop-item>.item-background{
   position: absolute;
   z-index: -1;
   top: 0;
@@ -135,14 +131,14 @@ body{
   height: 100%;
   outline: none;
 }
-.item-desktop-dragging-tag{
+.desktop-item-dragging-tag{
   display: inline-block;
   position: fixed;
   height: 20px;
   border: 1px solid #767676;
   background-color: #fff;
 }
-.item-desktop-dragging-tag-p{
+.desktop-item-dragging-tag-p{
   padding: 0px 2px;
   font-size: 12px;
   color: rgba(0, 51, 204, 1);
@@ -151,14 +147,14 @@ body{
   line-height:20px;
   white-space: nowrap;
 }
-.item-desktop-dragging-tag-action{
+.desktop-item-dragging-tag-action{
   height: 100%;
   padding: 0px 1px;
   margin: 0;
   color: #03c;
   box-sizing: border-box;
 }
-.item-desktop-dragging-tag-aim{
+.desktop-item-dragging-tag-aim{
   height: 100%;
   padding: 0px 1px;
   margin: 0;

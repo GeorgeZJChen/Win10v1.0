@@ -131,7 +131,7 @@
         '</div>';
 
       html += '<div class="window-content" id="' + id + '_content">'+
-        '<div style="width:100%;height:100%;top:0px;left:0px" class="window-content-selection"></div></div>';
+        '<div style="width:100%;height:100%;top:0px;left:0px" class="window-content-selection window-content-grid-view"></div></div>';
       var win = document.createElement("div");
       win.id = id;
       win.className = "window " + this.className;

@@ -294,23 +294,6 @@
 
     return this;
   };
-  AnimateWin.prototype.afterMinimise = function() {
-    var div = document.createElement('div');
-    div.style.position = 'absolute';
-    div.style.bottom = 0;
-    div.style.background = '#fff';
-    div.style.color = '#000';
-    div.style.fontSize = '13px';
-    div.style.maxWidth = '190px';
-    div.innerHTML = "Click this little <span style='color:#00009d'>ring</span> to reopen the window<span style='color:#83c'>↓</span>";
-    document.body.appendChild(div);
-    var self = this;
-    setTimeout(function(){
-      self.fadeOut(div, 500, 0, function(){
-        if(div) div.parentNode.removeChild(div);
-      });
-    }, 2000);
-  }
   /**
    * override undoMinimise so as to add animation
    * @return {[type]} [description]

@@ -37,7 +37,7 @@
             console.error("error");
           }
         });
-      }, 2000);
+      }, 20);
 
     }
 
@@ -56,7 +56,7 @@
       document.getElementById('login_button').parentNode.removeChild(document.getElementById('login_button'));
       document.getElementById('login_loader').style.visibility = 'visible';
     }else {
-      document.getElementById('login_greetings').innerHTML = "Welcome. Please be advised to use modern browsers rather than IE.";
+      document.getElementById('login_greetings').innerHTML = "Welcome. Please be advised to use modern browsers other than IE.";
     }
   }
   if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|SymbianOS)/i)){
